@@ -1,0 +1,89 @@
+body, html {
+  background: linear-gradient(135deg, #ece9f7 0%, #fef6e4 100%);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  margin: 40px auto;
+  max-width: 600px;
+  background: white;
+  border-radius: 14px;
+  padding: 32px 32px 24px 32px;
+  box-shadow: 0 6px 36px rgba(56,54,102,0.15);
+}
+
+h2 {
+  text-align: center;
+  color: #3d246c;
+  margin-bottom: 1.5em;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.upload-form label {
+  color: #5a189a;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.preview-img {
+  display: block;
+  margin-top: 5px;
+  max-height: 140px;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px #ddd;
+}
+
+.compare-btn {
+  background: linear-gradient(90deg, #7b2ff2 0%, #f357a8 100%);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 12px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.result-section {
+  margin-top: 28px;
+  background: #f8f9ff;
+  border-radius: 7px;
+  padding: 24px 18px 10px 18px;
+  box-shadow: 0 1px 10px #f0f0f0;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.comparison-table th, .comparison-table td {
+  border: 1px solid #efd6f6;
+  padding: 7px 9px;
+  text-align: left;
+}
+
+.comparison-table th {
+  background: #edf6f9;
+  color: #484a5a;
+}
+
+.comparison-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+footer {
+  margin-top: 36px;
+  text-align: center;
+  color: #c471ed;
+  font-size: 13px;
+}
