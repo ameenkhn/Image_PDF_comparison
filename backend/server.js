@@ -17,27 +17,23 @@ app.post('/upload', upload.fields([
   { name: 'image', maxCount: 1 },
   { name: 'pdf', maxCount: 1 }
 ]), async (req, res) => {
-  // Add these lines at the very top of the handler:
+  
   console.log('Received upload request');
   console.log('Files:', req.files);
   try {
     const imageFile = req.files['image'][0];
     const pdfFile = req.files['pdf'][0];
-    // Extract text from image
     const imageText = await Tesseract.recognize(
       fs.readFileSync(imageFile.path),
       'eng'
     ).then(result => result.data.text);
 
-    // Extract text from PDF
     const pdfText = await pdfParse(fs.readFileSync(pdfFile.path))
       .then(data => data.text);
 
-    // Delete files after processing
     fs.unlinkSync(imageFile.path);
     fs.unlinkSync(pdfFile.path);
 
-    // Call Gemini 2.5 API (Replace with actual endpoint if changed)
     const geminiResp = await axios.post(
       'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBl7PNGSDrt1I_hfOAhnQ4OPvfj9TRMnW0',
       {
@@ -51,7 +47,6 @@ app.post('/upload', upload.fields([
       }
     );
 
-    // Extract the response text from Gemini
     const comparisonText = geminiResp.data.candidates?.[0]?.content?.parts?.[0]?.text || 'No result';
 
     res.json({ comparison: comparisonText });

@@ -42,7 +42,6 @@ function App() {
     }
   };
 
-  // optional: parse markdown table to HTML table for better display
   function renderTableFromMarkdown(markdown) {
     const match = markdown.match(/\|(.|\n)*\|/); // crude regex for table
     if (!match) return <pre>{markdown}</pre>;
